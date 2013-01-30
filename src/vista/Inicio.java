@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.EventQueue;
+import vista.Consultar;
 
 import javax.swing.JFrame;
 import java.awt.Toolkit;
@@ -19,6 +20,7 @@ import javax.swing.JMenuBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.io.File;
 
 public class Inicio {
 
@@ -53,7 +55,7 @@ public class Inicio {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("J:\\usb juank\\to\\documentos\\logan.PNG"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes"+File.separator+"logan.PNG"));
 		frame.setBounds(100, 100, 489, 365);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -62,6 +64,11 @@ public class Inicio {
 		btnConsultar.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			
+				Consultar miConsulta = new Consultar();
+				miConsulta.setVisible(true);
+				
+				
 				
 				
 			}
@@ -77,19 +84,19 @@ public class Inicio {
 		frame.getContentPane().add(btnLibroVerde);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSalir.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
 		btnSalir.setBackground(new Color(192, 192, 192));
 		btnSalir.setBounds(196, 189, 91, 23);
 		frame.getContentPane().add(btnSalir);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("J:\\usb juank\\to\\documentos\\logan.PNG"));
+		lblNewLabel.setIcon(new ImageIcon("imagenes"+File.separator+"logan.PNG"));
 		lblNewLabel.setBounds(0, 0, 478, 345);
 		frame.getContentPane().add(lblNewLabel);
-		
-		JMenu mnNewMenu = new JMenu("New menu");
-		mnNewMenu.setBounds(55, 268, 83, 19);
-		frame.getContentPane().add(mnNewMenu);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

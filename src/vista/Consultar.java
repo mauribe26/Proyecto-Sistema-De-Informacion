@@ -1,17 +1,22 @@
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Consultar {
+public class Consultar extends JFrame {
 
-	private JFrame Consultar;
+	private JPanel contentPane;
 	private JTextField textField;
 
 	/**
@@ -21,8 +26,8 @@ public class Consultar {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Consultar window = new Consultar();
-					window.Consultar.setVisible(true);
+					Consultar frame = new Consultar();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -31,37 +36,38 @@ public class Consultar {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public Consultar() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		Consultar = new JFrame();
-		Consultar.getContentPane().setBackground(new Color(255, 255, 255));
-		Consultar.setTitle("Consultar");
-		Consultar.setBounds(100, 100, 450, 300);
-		Consultar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Consultar.getContentPane().setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 483, 337);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblDocumento = new JLabel("Documento");
-		lblDocumento.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		lblDocumento.setBounds(28, 57, 86, 18);
-		Consultar.getContentPane().add(lblDocumento);
+		lblDocumento.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
+		lblDocumento.setBounds(31, 43, 79, 14);
+		contentPane.add(lblDocumento);
 		
 		textField = new JTextField();
-		textField.setBounds(116, 58, 91, 20);
-		Consultar.getContentPane().add(textField);
+		textField.setBounds(120, 41, 110, 20);
+		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		btnAceptar.setBounds(172, 134, 91, 23);
-		Consultar.getContentPane().add(btnAceptar);
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Consultar2 miConsulta1 = new Consultar2 ();
+				miConsulta1.setVisible(true);
+				
+			
+			}
+		});
+		btnAceptar.setBounds(181, 142, 91, 23);
+		contentPane.add(btnAceptar);
 	}
-
 }

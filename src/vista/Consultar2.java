@@ -1,22 +1,25 @@
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.Font;
 import javax.swing.JTextField;
-import java.awt.Toolkit;
+import javax.swing.JTable;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.table.DefaultTableModel;
 
-public class Consultar2 {
+public class Consultar2 extends JFrame {
 
-	private JFrame frame;
+	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -25,8 +28,8 @@ public class Consultar2 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Consultar2 window = new Consultar2();
-					window.frame.setVisible(true);
+					Consultar2 frame = new Consultar2();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,66 +38,71 @@ public class Consultar2 {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public Consultar2() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("J:\\usb juank\\to\\documentos\\logan.PNG"));
-		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 577, 482);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblNombre.setBounds(28, 31, 46, 14);
-		frame.getContentPane().add(lblNombre);
-		
-		JLabel lblDocumento = new JLabel("Documento");
-		lblDocumento.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblDocumento.setBounds(28, 56, 62, 14);
-		frame.getContentPane().add(lblDocumento);
-		
-		JLabel lblCurso = new JLabel("Curso");
-		lblCurso.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblCurso.setBounds(28, 81, 46, 14);
-		frame.getContentPane().add(lblCurso);
-		
-		JLabel lblAoDeGraduacion = new JLabel("A\u00F1o de graduacion");
-		lblAoDeGraduacion.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblAoDeGraduacion.setBounds(28, 106, 108, 14);
-		frame.getContentPane().add(lblAoDeGraduacion);
+		JLabel lblNombreDelCurso = new JLabel("Nombre del curso");
+		lblNombreDelCurso.setBounds(27, 21, 110, 14);
+		contentPane.add(lblNombreDelCurso);
 		
 		textField = new JTextField();
-		textField.setBounds(148, 29, 108, 20);
-		frame.getContentPane().add(textField);
+		textField.setBounds(135, 18, 130, 20);
+		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		JLabel lblNumeroDeFicha = new JLabel("Numero de ficha");
+		lblNumeroDeFicha.setBounds(305, 21, 110, 14);
+		contentPane.add(lblNumeroDeFicha);
+		
 		textField_1 = new JTextField();
-		textField_1.setBounds(148, 54, 108, 20);
-		frame.getContentPane().add(textField_1);
+		textField_1.setBounds(405, 18, 99, 20);
+		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(148, 79, 108, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(148, 104, 108, 20);
-		frame.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
-		
 		JButton btnRegresarAlInicio = new JButton("Regresar al inicio");
-		btnRegresarAlInicio.setBounds(152, 176, 134, 23);
-		frame.getContentPane().add(btnRegresarAlInicio);
+		btnRegresarAlInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		btnRegresarAlInicio.setBounds(240, 383, 161, 23);
+		contentPane.add(btnRegresarAlInicio);
+		
+		table = new JTable();
+		table.setBorder(new EmptyBorder(0, 0, 0, 0));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Nombre", "Documento", "Descripcion"},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"Nombre", "Documento", "Descripcion"
+			}
+		));
+		table.getColumnModel().getColumn(0).setMinWidth(20);
+		table.setBounds(69, 96, 459, 240);
+		contentPane.add(table);
 	}
 
 }
