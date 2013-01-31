@@ -49,11 +49,11 @@ public class Consultar extends JFrame {
 		
 		JLabel lblDocumento = new JLabel("Documento");
 		lblDocumento.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblDocumento.setBounds(31, 43, 79, 14);
+		lblDocumento.setBounds(31, 66, 79, 14);
 		contentPane.add(lblDocumento);
 		
 		textField = new JTextField();
-		textField.setBounds(120, 41, 110, 20);
+		textField.setBounds(126, 64, 110, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
@@ -63,6 +63,7 @@ public class Consultar extends JFrame {
 				
 				Consultar2 miConsulta1 = new Consultar2 ();
 				miConsulta1.setVisible(true);
+				hide();
 				
 			
 			}

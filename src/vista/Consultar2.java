@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class Consultar2 extends JFrame {
 
@@ -44,31 +46,36 @@ public class Consultar2 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 577, 482);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreDelCurso = new JLabel("Nombre del curso");
-		lblNombreDelCurso.setBounds(27, 21, 110, 14);
+		lblNombreDelCurso.setBounds(27, 40, 110, 14);
 		contentPane.add(lblNombreDelCurso);
 		
 		textField = new JTextField();
-		textField.setBounds(135, 18, 130, 20);
+		textField.setBounds(137, 37, 130, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNumeroDeFicha = new JLabel("Numero de ficha");
-		lblNumeroDeFicha.setBounds(305, 21, 110, 14);
+		lblNumeroDeFicha.setBounds(306, 40, 110, 14);
 		contentPane.add(lblNumeroDeFicha);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(405, 18, 99, 20);
+		textField_1.setBounds(406, 37, 99, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JButton btnRegresarAlInicio = new JButton("Regresar al inicio");
 		btnRegresarAlInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Inicio miInicio = new Inicio();
+				miInicio.setVisible(true);
+				hide();
 				
 				
 			}
@@ -77,12 +84,12 @@ public class Consultar2 extends JFrame {
 		contentPane.add(btnRegresarAlInicio);
 		
 		table = new JTable();
-		table.setBorder(new EmptyBorder(0, 0, 0, 0));
+		table.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Nombre", "Documento", "Descripcion"},
-				{null, null, null},
-				{null, null, null},
+				{"Dahian Tabares Hortua", "1094945447", "No aprobado"},
+				{"Sebastian toro", "1097486528", "Aprobado"},
 				{null, null, null},
 				{null, null, null},
 				{null, null, null},
