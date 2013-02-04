@@ -16,6 +16,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Inicio extends JFrame {
 
@@ -59,47 +64,65 @@ public class Inicio extends JFrame {
 		setBounds(100, 100, 489, 332);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Registrar");
-		btnNewButton.setBounds(202, 61, 91, 23);
-		contentPane.add(btnNewButton);
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
 		
-		JButton btnNewButton_1 = new JButton("Consultar");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Consultar miConsulta = new Consultar();
-				miConsulta.setVisible(true);
-				hide();
+		JMenu mnNewMenu = new JMenu("Libro Verde");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Consultar");
+		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
 				
-				
-			}
-		});
-		btnNewButton_1.setBounds(202, 115, 91, 23);
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Libro Verde");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 				Libro miLibro = new Libro();
 				miLibro.setVisible(true);
 				hide();
 			}
 		});
-		btnNewButton_2.setBounds(196, 170, 108, 23);
-		contentPane.add(btnNewButton_2);
+		mnNewMenu.add(mntmNewMenuItem);
 		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.setBounds(202, 220, 91, 23);
-		contentPane.add(btnSalir);
+		
+		JMenu mnNewMenu_1 = new JMenu("Registrar");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Actualizar");
+		mntmNewMenuItem_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+				Editar miEdito =new Editar ();
+				miEdito.setVisible(true);
+				hide();
+				
+				
+			}
+		});
+		mnNewMenu_1.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Borrar");
+		mnNewMenu_1.add(mntmNewMenuItem_3);
+		
+		JMenuItem mntmConsultar = new JMenuItem("Consultar");
+		mntmConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Consultar miConsulta =new Consultar();
+				miConsulta.setVisible(true);
+				hide();
+				
+			}
+		});
+		mnNewMenu_1.add(mntmConsultar);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("imagenes"+File.separator+"logan.PNG"));
 		lblNewLabel.setBounds(0, 0, 484, 308);
 		contentPane.add(lblNewLabel);
 	}
-
 }

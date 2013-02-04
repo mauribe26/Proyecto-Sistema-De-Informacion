@@ -82,6 +82,7 @@ public class Sesion {
 				
 				
 				
+				
 			}
 		});
 		btnIniciarSesion.setBounds(155, 188, 113, 23);

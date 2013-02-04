@@ -4,20 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Consultar extends JFrame {
+public class Editar extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -29,7 +27,7 @@ public class Consultar extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Consultar frame = new Consultar();
+					Editar frame = new Editar();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,10 +39,11 @@ public class Consultar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Consultar() {
+	public Editar() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
+				
 				int n = JOptionPane.showConfirmDialog( null,"Desea Salir","Desea Salir",JOptionPane.YES_NO_OPTION);
                 if(n==0)
                 {
@@ -54,35 +53,31 @@ public class Consultar extends JFrame {
 			}
 		});
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 483, 337);
+		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblDocumento = new JLabel("Documento");
-		lblDocumento.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblDocumento.setBounds(31, 66, 79, 14);
+		lblDocumento.setBounds(25, 63, 72, 14);
 		contentPane.add(lblDocumento);
 		
-		textField = new JTextField();
-		textField.setBounds(126, 64, 110, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				
-				Consultar2 miConsulta1 = new Consultar2 ();
-				miConsulta1.setVisible(true);
-				hide();
-				
-			
+			Editar1 miEdito = new Editar1();
+			miEdito.setVisible(true);
+			hide();
 			}
 		});
-		btnAceptar.setBounds(181, 142, 91, 23);
-		contentPane.add(btnAceptar);
+		btnNewButton.setBounds(128, 114, 91, 23);
+		contentPane.add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setBounds(133, 60, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 	}
 }

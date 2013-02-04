@@ -4,12 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -17,10 +15,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Consultar extends JFrame {
+public class Borrar extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -29,7 +28,7 @@ public class Consultar extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Consultar frame = new Consultar();
+					Borrar frame = new Borrar();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,48 +40,59 @@ public class Consultar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Consultar() {
+	public Borrar() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				int n = JOptionPane.showConfirmDialog( null,"Desea Salir","Desea Salir",JOptionPane.YES_NO_OPTION);
-                if(n==0)
-                {
-                       dispose();
-                }
+				
+				int sele = JOptionPane.showConfirmDialog(null, "Desea Salir?", "Desea Salir?", JOptionPane.YES_NO_OPTION);
+				if (sele==0)
+				{
+					dispose();
+				}
 				
 			}
 		});
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 483, 337);
+		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblDocumento = new JLabel("Documento");
-		lblDocumento.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		lblDocumento.setBounds(31, 66, 79, 14);
-		contentPane.add(lblDocumento);
+		JLabel lblNewLabel = new JLabel("Nombre");
+		lblNewLabel.setBounds(56, 64, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Documento");
+		lblNewLabel_1.setBounds(56, 102, 72, 14);
+		contentPane.add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(126, 64, 110, 20);
+		textField.setBounds(164, 99, 112, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
+		textField_1 = new JTextField();
+		textField_1.setBounds(164, 61, 112, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Aceptar");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Consultar2 miConsulta1 = new Consultar2 ();
-				miConsulta1.setVisible(true);
-				hide();
+			int sel = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar este aprendiz", "Esta seguro que desea eliminar este aprendiz", JOptionPane.YES_NO_OPTION );
 				
-			
+				if(sel==0)
+				{
+					
+				}
+				
 			}
 		});
-		btnAceptar.setBounds(181, 142, 91, 23);
-		contentPane.add(btnAceptar);
+		btnNewButton.setBounds(159, 162, 91, 23);
+		contentPane.add(btnNewButton);
 	}
+
 }
